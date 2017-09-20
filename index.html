@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="issuuAPI">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.js"></script>
+    <title>Document</title>
+</head>
+<body ng-controller="Index as index">
+    <h1>{{index.message}}</h1>
+
+    <div data-configid="31155580/53393616" style="width:100%; height:400px;" class="issuuembed"></div>
+    <script type="text/javascript" src="http://e.issuu.com/embed.js" async="true"></script>
+    
+    <br>
+
+    <ul>
+        <li ng-repeat="document in index.docs.rsp._content.result._content">
+            <p>{{document.document.username}}</p>
+            <p>{{document.document.title}}</p>
+            <p>{{document.document.name}}</p>
+            <p>{{document.document.state}}</p>
+            <p>{{document.document.type}}</p>
+            {{document.document}}
+            
+            
+
+        </li>
+    </ul>
+    <script type="text/javascript" charset="utf-8">
+        
+            window.onIssuuReadersLoaded = function() {
+        
+                var viewer = window.IssuuReaders.get("31155580/53393616");
+        
+                // Add listener for 'change' event, and flip to page 2.
+        
+                viewer.addEventListener("change", function(){
+                    // viewerChangeHandler
+                });
+        
+                viewer.setPageNumber(2);
+        
+            };
+        
+        </script>
+    <script src="app.js"></script>
+</body>
+</html>
